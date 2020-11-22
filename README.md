@@ -1,7 +1,8 @@
 # Group18_DatabaseDesign
 ## Introduction
-### Project Description
 For this project, my group and I were tasked with understanding and enhancing a database system, utilizing MySQL, that is a campus controlled food delivery service (similar to craveoncampus.com which was created due to the changes COVID-19 caused). Regarding the enhancements of the database, we were responsible for adding a rating system for the restaurants and the delivery drivers.
+### Project Description
+Delivery services such as UberEats and Postmates have impacted the restaurant industry immensely. They are not only impacting the food industry, but creating more job opportunities consequently increasing the employment rate and creating new ways of dining from the comfort of their house. Due to COVID-19, the use of these services have increased and there is a need to create and implement these delivery services to adjust to the new norm. An example of one of the places in need of a delivery service are universities. Due to safety and security reasons, it’s suggested that deliveries and orders should be made by a student or authorized university employee. For this assignment, we are enhancing the database using a rating system for both drivers and restaurants. For the rating system of the driver, we will be incorporating the delivery time attribute from the delivery entity, using the driver id from the driver entity, and creating new attributes called dropOff_time and rating. For the rating system of the restaurant, we will be incorporating the restaurant id from the restaurant entity and the driver’s information.
 ### Team/Group Members
 - Kelsey Locaylocay
 - Brian Colclough
