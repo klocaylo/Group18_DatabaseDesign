@@ -9,6 +9,7 @@ For this project, my group and I were tasked with understanding and enhancing a 
 - Meselech Elala
 - Tia Vang
 ## Use Case for Rating System
+![](images/Use%20Case.png)
 ## Business Rules
 - A person can be any staff member, any student, or any faculty member.
 - All delivery personnel are students.
@@ -23,6 +24,17 @@ For this project, my group and I were tasked with understanding and enhancing a 
 - Locations are determined by latitude and longitude coordinates for enabled GPS tracking functionality (locations must be approved).
 - One vehicle can be assigned many deliveries. 
 ## EERD(full database)
+### EERD
+![](images/EERD.png)
+### Data Dictionary
+|Table|Field Name|Data Type|Field Length|Key(s)|Description|
+|:----------|:---------|:----------|:---------|:----------|:---------|
+|Delivery|delivery_time|DATETIME|N/A||When the order is estimated to be delivered|
+|Delivery|dropoff_time|DATETIME|N/A||When the order is dropped off at customer's residence|
+|restaurant_rating|restaurant_id|INT|11|FK|ID of specific restaurants|
+|driver_rating|driver_id|INT|11|FK|ID of specific drivers|
+|Restaurant_rating, driver_rating|rating_id|INT|11|PK|Keeps track of individual ratings|
+|Restaurant_rating, driver_rating|rating|FLOAT|N/A||Overall rating of a driver|
 ## MySQL Queries
 ## Stored Procedure
 ## Web/App Implementation (Optional) or Description of Future Work
