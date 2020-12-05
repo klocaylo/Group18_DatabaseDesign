@@ -40,4 +40,5 @@ Delivery services such as UberEats and Postmates have impacted the restaurant in
 ## Stored Procedure
 ## Web/App Implementation (Optional) or Description of Future Work
 ## MySQL Dump
+[Here is the link to our SQL Dump](Dump20201205.sql)
 ## PPT Video (link)
