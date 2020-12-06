@@ -26,7 +26,7 @@ Delivery services such as UberEats and Postmates have impacted the restaurant in
 - One vehicle can be assigned many deliveries. 
 ## EERD(full database)
 ### EERD
-![](images/EERD.png)
+![](images/Official_EERD.png)
 ### Data Dictionary
 |Table|Field Name|Data Type|Field Length|Key(s)|Description|
 |:----------|:---------|:----------|:---------|:----------|:---------|
