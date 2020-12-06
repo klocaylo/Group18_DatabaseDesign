@@ -37,6 +37,26 @@ Delivery services such as UberEats and Postmates have impacted the restaurant in
 |Restaurant_rating, driver_rating|rating_id|INT|11|PK|Keeps track of individual ratings|
 |Restaurant_rating, driver_rating|rating|FLOAT|N/A||Overall rating of a driver|
 ## MySQL Queries
+### Rating Tables & Added Test Data
+#### Driver Rating Table
+![](images/Driver_Rating_Table.png)
+
+#### Restaurant Rating Table
+![](images/Restaurant_Rating_Table.png)
+
+#### Additional Columns for Delivery Table
+![](images/Additonal_Columns_for_Delivery_Table.png)
+
+#### Relationships with SQL Scripts
+A driver must be a Student who is also a Person. 
+![](images/Relationship_with_SQL_Scripts.png)
+
+A Driver’s compensation and number of deliveries in a shift is dependent on accurate delivery time and rating score as determined by the business. *Rating score is determined by the customer who is using the app.*
+![](images/Drivers_compensation.png)
+
+Promotional space on the app will be allotted to restaurants that have higher rating scores.
+![](images/promotional_space.png)
+
 ## Stored Procedure
 ## Web/App Implementation (Optional) or Description of Future Work
 ## MySQL Dump
