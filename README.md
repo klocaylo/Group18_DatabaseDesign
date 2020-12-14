@@ -157,6 +157,16 @@ A Driver’s compensation and number of deliveries in a shift is dependent on ac
 Promotional space on the app will be allotted to restaurants that have higher rating scores.
 ![](images/promotional_space.png)
 
+### Query Optimization
+For the query optimization, an Explain statement was used. Below is an explain statement for the driver rating table. The select type is simple, the result is derived from the driver_rating table, the number of rows to account for is 100, and a WHERE clause is used. Here the select statement is simply displaying all the information from the driver_rating table with a rating of 5.
+![](images/query_optimization.png)
+
+Below is an explain statement for the restaurant rating table. The select type is simple, the result is derived from the restauarant_rating table, the number of rows to account for is 100, and a WHERE clause is used. Here the select statement is simply displaying all the information from the restuarant_rating table with a rating of 5.
+![](images/query_optimization2.png)
+
+The select type below is simple, the result is derived from the restauarant_rating table and the order table. The number of rows to account for is 100. The select statement uses the primary key from the restaurant table and foreign key from the order and restaurant rating table.  
+![](images/query_optimization3.png)
+
 ## Stored Procedure
 ## Web/App Implementation (Optional) or Description of Future Work
 ## MySQL Dump
