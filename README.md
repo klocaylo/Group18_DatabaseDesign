@@ -168,7 +168,7 @@ The select type below is simple, the result is derived from the restauarant_rati
 ![](images/query_optimization3.png)
 
 ## Stored Procedure
-Below is the image of our stored procedures. The calculate_average_driver_rating stored procedure is used to calculate the average rating for any particular driver. The only parameter you need to pass in is the id of the driver. The calculate_average_restaurant_rating is used to calculate the average rating fo any particular restaurant. The only parameter you need to pass in is the id of the restaurant. 
+Below is the image of our stored procedures. The calculate_average_driver_rating stored procedure is used to calculate the average rating for any particular driver. The only parameter you need to pass in is the id of the driver. The calculate_average_restaurant_rating is used to calculate the average rating for any particular restaurant. The only parameter you need to pass in is the id of the restaurant. 
 
 ![](images/Stored_Procedure.png)
 
