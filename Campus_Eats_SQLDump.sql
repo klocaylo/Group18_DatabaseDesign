@@ -1,16 +1,8 @@
-Drop database Campus_Eats_Fall2020;
-Create database Campus_Eats_Fall2020;
-Use Campus_Eats_Fall2020;
--- MySQL dump 10.13  Distrib 8.0.18, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.21, for macos10.15 (x86_64)
 --
--- Host: 127.0.0.1    Database: niner_eats
+-- Host: 127.0.0.1    Database: Campus_Eats_Fall2020
 -- ------------------------------------------------------
--- Server version	8.0.18
--- created by "mavericks" team:  
--- Dhananjay Arora, Akshay Babu, Sumit Kawale, Prashant Madaan
--- this database is only to be used for educational and class
--- purposes and can not be replicated or used for commercial purposes
--- or private interests without permission by the Mavericks team
+-- Server version	8.0.22
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -31,10 +23,12 @@ DROP TABLE IF EXISTS `delivery`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `delivery` (
-  `delivery_id` int(11) NOT NULL AUTO_INCREMENT,
-  `driver_id` int(11) NOT NULL,
-  `vehicle_id` int(11) NOT NULL,
+  `delivery_id` int NOT NULL AUTO_INCREMENT,
+  `driver_id` int NOT NULL,
+  `vehicle_id` int NOT NULL,
   `delivery_time` datetime DEFAULT NULL,
+  `pickup_time` datetime DEFAULT NULL,
+  `dropoff_time` datetime DEFAULT NULL,
   PRIMARY KEY (`delivery_id`),
   KEY `fk_delivery_driver_id` (`driver_id`),
   KEY `fk_delivery_vehicle_id` (`vehicle_id`),
@@ -49,7 +43,7 @@ CREATE TABLE `delivery` (
 
 LOCK TABLES `delivery` WRITE;
 /*!40000 ALTER TABLE `delivery` DISABLE KEYS */;
-INSERT INTO `delivery` VALUES (1,3,8,'2004-04-15 15:15:01'),(2,6,17,'1986-03-09 13:02:10'),(3,8,4,'2007-03-27 04:20:50'),(4,4,4,'1990-11-27 07:17:36'),(5,4,7,'1985-05-17 20:06:35'),(6,5,15,'1987-07-21 03:13:27'),(7,7,1,'1984-12-20 02:07:33'),(8,6,16,'1987-10-24 02:17:47'),(9,6,10,'1973-08-23 08:51:27'),(10,4,8,'1984-07-05 15:41:52'),(11,3,12,'2005-08-13 13:46:19'),(12,4,12,'2000-06-10 15:12:36'),(13,3,4,'1997-03-15 11:26:07'),(14,2,7,'2002-11-02 13:09:13'),(15,3,16,'1981-12-08 18:29:25'),(16,7,16,'1996-08-06 00:30:01'),(17,5,20,'2006-09-06 06:36:54'),(18,5,19,'1992-08-13 02:49:56'),(19,8,12,'1993-07-28 11:48:09'),(20,5,6,'1990-01-04 11:00:09'),(21,5,3,'2000-12-13 17:38:36'),(22,4,13,'1990-03-19 22:51:00'),(23,5,9,'1972-02-19 02:26:18'),(24,7,7,'2017-03-20 16:51:08'),(25,8,13,'1974-01-01 11:14:14'),(26,2,13,'2019-01-15 05:59:35'),(27,1,3,'2007-04-20 19:22:11'),(28,6,18,'1982-06-13 10:39:10'),(29,7,6,'1996-02-24 19:28:29'),(30,8,9,'1975-02-18 15:58:47'),(31,4,17,'1994-05-20 07:20:50'),(32,2,1,'2012-05-15 03:14:38'),(33,5,6,'2003-04-13 15:05:16'),(34,4,15,'2013-03-20 03:42:18'),(35,7,16,'2016-11-14 07:19:17'),(36,1,2,'1978-05-30 23:37:54'),(37,5,10,'2012-04-12 12:47:41'),(38,8,19,'1976-11-28 20:32:04'),(39,4,6,'2014-06-13 10:12:35'),(40,6,3,'2014-10-26 06:51:03'),(41,2,4,'1977-10-01 00:42:32'),(42,3,10,'1999-09-16 09:29:48'),(43,5,4,'1997-10-10 15:57:51'),(44,5,19,'2002-05-07 05:34:59'),(45,5,15,'2004-05-06 01:40:09'),(46,7,9,'1987-08-29 11:10:25'),(47,1,9,'1999-05-04 20:14:44'),(48,8,1,'2013-05-18 02:51:44'),(49,4,20,'2000-11-18 05:13:35'),(50,1,10,'1974-04-01 19:29:04'),(51,3,3,'2009-01-01 08:06:39'),(52,7,6,'1983-06-24 13:57:13'),(53,5,7,'2001-06-27 04:51:36'),(54,1,8,'2010-06-22 15:40:38'),(55,8,8,'2005-08-13 20:44:05'),(56,7,4,'1997-11-15 04:34:41'),(57,4,11,'1980-08-20 18:58:41'),(58,1,12,'1999-11-10 05:16:48'),(59,5,1,'2007-05-23 12:18:57'),(60,4,20,'1997-12-01 11:07:06'),(61,4,12,'2012-04-22 10:09:20'),(62,4,12,'1980-12-23 17:00:24'),(63,2,17,'1974-03-09 13:17:06'),(64,2,14,'2006-05-23 00:09:16'),(65,6,5,'2015-12-04 02:40:23'),(66,5,8,'2013-10-06 09:32:26'),(67,4,16,'2007-10-19 19:02:18'),(68,8,6,'2004-07-18 07:16:52'),(69,8,13,'1994-09-18 22:12:40'),(70,6,15,'2001-07-24 11:56:32'),(71,5,11,'1997-05-08 08:13:38'),(72,2,17,'1991-07-22 02:45:00'),(73,5,11,'2007-01-29 00:46:12'),(74,7,18,'1972-10-08 02:30:28'),(75,2,11,'2012-08-08 06:06:23'),(76,5,20,'1992-03-03 17:59:04'),(77,3,11,'2002-06-01 09:30:41'),(78,2,17,'2004-12-20 16:44:08'),(79,5,1,'1976-04-03 09:33:28'),(80,8,12,'2015-05-07 06:51:40'),(81,1,11,'1982-05-17 00:05:21'),(82,5,11,'1997-03-05 05:33:31'),(83,2,17,'1983-07-04 04:40:47'),(84,3,1,'2014-07-13 06:03:16'),(85,7,15,'2005-11-22 09:50:13'),(86,3,6,'2016-01-24 01:19:46'),(87,7,14,'1970-04-25 22:44:54'),(88,8,15,'1981-11-19 06:22:17'),(89,5,5,'1982-12-27 11:00:06'),(90,5,11,'1972-06-18 13:59:01'),(91,4,4,'2008-06-17 01:54:35'),(92,6,13,'1993-04-09 05:12:19'),(93,1,12,'1996-12-24 00:24:04'),(94,1,5,'1999-09-03 23:23:03'),(95,1,7,'1982-04-08 01:10:43'),(96,5,12,'1996-11-17 03:22:08'),(97,7,4,'1976-02-29 10:04:08'),(98,2,10,'1980-05-01 04:18:43'),(99,3,4,'1983-10-04 13:03:38'),(100,6,2,'2011-06-16 17:20:37'),(101,4,2,NULL);
+INSERT INTO `delivery` VALUES (1,4,7,'2004-04-15 15:15:01','2020-04-16 15:43:52','2021-10-11 19:09:43'),(2,2,17,'1986-03-09 13:02:10','2020-04-16 20:05:07','2020-10-15 23:34:01'),(3,7,6,'2007-03-27 04:20:50','2020-12-17 20:14:55','2021-03-08 09:18:22'),(4,7,10,'1990-11-27 07:17:36','2021-07-02 03:37:06','2020-12-22 00:54:15'),(5,1,2,'1985-05-17 20:06:35','2021-03-29 12:30:17','2020-11-23 05:56:35'),(6,3,5,'1987-07-21 03:13:27','2020-02-21 08:48:29','2020-07-23 05:57:33'),(7,4,4,'1984-12-20 02:07:33','2020-09-28 05:36:56','2020-10-17 17:33:02'),(8,5,20,'1987-10-24 02:17:47','2020-08-26 14:50:08','2020-11-16 05:27:22'),(9,1,10,'1973-08-23 08:51:27','2019-12-07 00:37:55','2020-02-17 10:00:09'),(10,5,20,'1984-07-05 15:41:52','2020-03-16 03:27:03','2020-06-23 16:32:53'),(11,5,2,'2005-08-13 13:46:19','2020-01-19 08:24:57','2021-04-28 19:21:21'),(12,1,19,'2000-06-10 15:12:36','2020-07-27 03:09:16','2020-10-03 00:57:04'),(13,3,14,'1997-03-15 11:26:07','2020-03-07 22:25:37','2021-06-27 03:32:01'),(14,1,15,'2002-11-02 13:09:13','2020-09-17 06:31:58','2020-02-27 16:06:09'),(15,1,16,'1981-12-08 18:29:25','2021-02-24 07:22:12','2020-08-14 06:21:07'),(16,6,14,'1996-08-06 00:30:01','2022-01-06 13:40:31','2020-03-10 06:42:55'),(17,5,9,'2006-09-06 06:36:54','2021-07-25 08:49:53','2021-11-04 01:22:25'),(18,1,2,'1992-08-13 02:49:56','2021-12-11 17:30:57','2021-03-23 19:30:48'),(19,8,9,'1993-07-28 11:48:09','2020-10-14 08:31:15','2020-06-28 03:06:12'),(20,7,18,'1990-01-04 11:00:09','2020-06-21 19:58:45','2020-08-22 03:26:57'),(21,6,8,'2000-12-13 17:38:36','2021-07-24 01:11:53','2021-04-26 12:58:24'),(22,8,8,'1990-03-19 22:51:00','2020-04-24 18:09:44','2020-02-17 13:29:57'),(23,5,9,'1972-02-19 02:26:18','2021-01-05 01:37:53','2020-09-08 16:24:28'),(24,2,8,'2017-03-20 16:51:08','2021-08-06 01:32:29','2021-06-10 15:49:06'),(25,3,12,'1974-01-01 11:14:14','2021-11-26 15:28:19','2019-12-19 22:48:15'),(26,2,12,'2019-01-15 05:59:35','2020-01-21 16:29:31','2020-01-08 15:08:28'),(27,1,19,'2007-04-20 19:22:11','2020-10-18 12:42:56','2021-02-01 15:41:53'),(28,5,11,'1982-06-13 10:39:10','2021-04-02 21:49:50','2020-05-31 23:03:20'),(29,6,2,'1996-02-24 19:28:29','2020-05-09 19:22:29','2022-01-01 07:36:58'),(30,1,13,'1975-02-18 15:58:47','2021-06-30 17:56:05','2020-01-27 23:00:47'),(31,6,6,'1994-05-20 07:20:50','2020-11-23 18:23:50','2020-06-26 03:12:17'),(32,8,3,'2012-05-15 03:14:38','2021-04-03 02:09:00','2021-10-27 19:31:57'),(33,8,15,'2003-04-13 15:05:16','2021-10-18 22:13:12','2021-04-09 23:20:27'),(34,4,18,'2013-03-20 03:42:18','2021-11-15 09:23:39','2020-11-12 22:43:24'),(35,3,18,'2016-11-14 07:19:17','2020-07-14 06:00:32','2020-02-05 02:31:15'),(36,6,2,'1978-05-30 23:37:54','2021-08-30 23:37:55','2021-12-20 11:03:43'),(37,4,9,'2012-04-12 12:47:41','2021-12-21 23:37:05','2020-07-28 02:23:55'),(38,8,6,'1976-11-28 20:32:04','2020-10-17 23:51:25','2021-01-01 15:53:29'),(39,1,17,'2014-06-13 10:12:35','2021-04-14 02:18:00','2020-04-01 10:21:36'),(40,1,11,'2014-10-26 06:51:03','2020-05-23 02:11:57','2021-01-31 07:33:17'),(41,5,19,'1977-10-01 00:42:32','2021-11-11 10:02:32','2020-04-08 02:27:40'),(42,4,19,'1999-09-16 09:29:48','2021-03-13 20:19:40','2020-05-05 15:57:41'),(43,1,6,'1997-10-10 15:57:51','2020-06-14 06:01:13','2020-05-17 12:35:28'),(44,4,8,'2002-05-07 05:34:59','2021-09-21 18:34:51','2020-04-29 18:50:23'),(45,2,1,'2004-05-06 01:40:09','2022-01-06 02:28:01','2021-04-22 21:44:47'),(46,1,6,'1987-08-29 11:10:25','2021-05-05 07:57:47','2021-08-03 13:22:17'),(47,4,3,'1999-05-04 20:14:44','2021-03-25 20:02:16','2020-09-01 20:17:01'),(48,3,15,'2013-05-18 02:51:44','2021-04-21 11:07:50','2021-10-08 17:14:54'),(49,7,7,'2000-11-18 05:13:35','2020-01-28 07:04:04','2021-02-10 15:35:05'),(50,7,11,'1974-04-01 19:29:04','2020-03-15 01:39:18','2021-05-12 08:11:33'),(51,7,18,'2009-01-01 08:06:39','2021-05-26 12:55:39','2021-05-18 06:30:14'),(52,4,2,'1983-06-24 13:57:13','2020-11-09 16:17:25','2020-01-05 21:11:00'),(53,3,16,'2001-06-27 04:51:36','2021-12-02 09:01:49','2021-06-20 17:03:47'),(54,1,19,'2010-06-22 15:40:38','2020-11-28 04:42:38','2020-07-03 20:28:15'),(55,2,6,'2005-08-13 20:44:05','2020-01-26 04:15:24','2020-01-05 13:33:41'),(56,3,1,'1997-11-15 04:34:41','2021-06-02 13:43:41','2020-01-18 19:34:54'),(57,8,11,'1980-08-20 18:58:41','2021-10-15 12:00:44','2020-02-16 21:37:04'),(58,4,4,'1999-11-10 05:16:48','2021-08-03 14:17:29','2020-10-09 07:18:57'),(59,6,14,'2007-05-23 12:18:57','2019-12-07 18:55:23','2020-01-12 02:02:41'),(60,1,8,'1997-12-01 11:07:06','2020-01-17 03:56:23','2021-12-19 04:35:19'),(61,8,4,'2012-04-22 10:09:20','2021-09-15 19:37:21','2021-02-05 21:10:03'),(62,6,8,'1980-12-23 17:00:24','2019-12-06 06:48:48','2021-05-02 06:00:35'),(63,4,10,'1974-03-09 13:17:06','2019-12-28 06:06:20','2020-11-18 20:33:26'),(64,8,3,'2006-05-23 00:09:16','2020-08-05 02:15:41','2020-08-13 16:46:37'),(65,6,2,'2015-12-04 02:40:23','2020-10-04 21:03:11','2020-08-27 00:17:12'),(66,7,15,'2013-10-06 09:32:26','2020-10-13 09:37:47','2020-07-06 03:20:11'),(67,3,14,'2007-10-19 19:02:18','2021-06-19 15:41:46','2019-12-25 06:41:31'),(68,4,18,'2004-07-18 07:16:52','2021-01-21 00:52:43','2021-11-23 01:23:37'),(69,3,5,'1994-09-18 22:12:40','2021-11-10 09:07:50','2020-03-26 23:03:31'),(70,6,1,'2001-07-24 11:56:32','2020-04-18 07:40:48','2021-11-25 13:15:44'),(71,2,19,'1997-05-08 08:13:38','2021-06-05 15:33:01','2021-05-22 15:26:15'),(72,7,3,'1991-07-22 02:45:00','2021-10-23 23:30:38','2020-09-20 06:08:17'),(73,7,12,'2007-01-29 00:46:12','2020-11-07 05:42:55','2020-10-27 20:10:41'),(74,1,17,'1972-10-08 02:30:28','2021-11-30 22:19:32','2021-06-26 07:49:39'),(75,6,4,'2012-08-08 06:06:23','2021-01-07 16:45:35','2021-08-10 21:09:21'),(76,5,20,'1992-03-03 17:59:04','2020-03-22 08:34:52','2021-11-21 04:42:53'),(77,8,14,'2002-06-01 09:30:41','2021-05-01 06:43:30','2021-03-22 01:25:31'),(78,8,19,'2004-12-20 16:44:08','2021-09-17 17:47:09','2022-01-02 14:00:27'),(79,3,13,'1976-04-03 09:33:28','2021-01-21 23:48:12','2021-06-21 04:32:11'),(80,5,16,'2015-05-07 06:51:40','2020-03-06 19:28:08','2020-07-03 01:43:06'),(81,3,17,'1982-05-17 00:05:21','2021-07-07 00:45:13','2020-06-13 03:28:11'),(82,5,5,'1997-03-05 05:33:31','2021-02-09 20:34:26','2019-12-07 00:32:43'),(83,3,4,'1983-07-04 04:40:47','2021-04-09 12:22:39','2021-11-30 20:56:12'),(84,7,10,'2014-07-13 06:03:16','2021-04-07 02:41:29','2020-12-06 12:31:27'),(85,3,8,'2005-11-22 09:50:13','2019-12-27 04:20:17','2021-08-17 10:14:12'),(86,4,11,'2016-01-24 01:19:46','2020-03-28 19:21:59','2020-09-01 23:46:50'),(87,8,8,'1970-04-25 22:44:54','2021-04-14 10:25:08','2020-05-19 01:28:28'),(88,2,4,'1981-11-19 06:22:17','2021-03-12 10:45:25','2022-01-24 22:53:29'),(89,5,16,'1982-12-27 11:00:06','2021-01-13 11:31:34','2020-03-31 14:47:44'),(90,5,20,'1972-06-18 13:59:01','2021-10-15 11:07:00','2020-10-27 14:49:59'),(91,8,12,'2008-06-17 01:54:35','2020-07-25 08:22:43','2020-05-15 05:28:29'),(92,5,8,'1993-04-09 05:12:19','2021-12-08 05:48:24','2020-06-02 15:05:31'),(93,2,17,'1996-12-24 00:24:04','2021-06-23 03:59:02','2021-08-23 02:05:14'),(94,3,2,'1999-09-03 23:23:03','2020-01-29 07:29:41','2021-10-22 16:59:22'),(95,3,13,'1982-04-08 01:10:43','2021-12-30 06:44:36','2020-09-09 21:41:51'),(96,6,1,'1996-11-17 03:22:08','2020-10-09 01:20:28','2021-08-21 17:49:07'),(97,3,13,'1976-02-29 10:04:08','2020-03-05 18:04:23','2021-04-13 02:39:56'),(98,1,13,'1980-05-01 04:18:43','2021-01-30 05:13:23','2021-07-17 05:03:35'),(99,4,12,'1983-10-04 13:03:38','2020-01-07 17:00:42','2021-08-22 22:42:11'),(100,7,16,'2011-06-16 17:20:37','2021-12-02 08:50:22','2020-04-10 19:42:21'),(101,4,2,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `delivery` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -61,8 +55,8 @@ DROP TABLE IF EXISTS `driver`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `driver` (
-  `driver_id` int(11) NOT NULL AUTO_INCREMENT,
-  `student_id` int(11) NOT NULL,
+  `driver_id` int NOT NULL AUTO_INCREMENT,
+  `student_id` int NOT NULL,
   `license_number` varchar(75) DEFAULT NULL,
   `date_hired` date DEFAULT NULL,
   `rating` float DEFAULT NULL,
@@ -83,6 +77,33 @@ INSERT INTO `driver` VALUES (1,110,'fi3980','1989-01-18',4),(2,98,'js4003','2017
 UNLOCK TABLES;
 
 --
+-- Table structure for table `driver_rating`
+--
+
+DROP TABLE IF EXISTS `driver_rating`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `driver_rating` (
+  `rating_id` mediumint unsigned NOT NULL AUTO_INCREMENT,
+  `driver_id` int NOT NULL,
+  `rating` mediumint DEFAULT NULL,
+  PRIMARY KEY (`rating_id`),
+  KEY `fk_driver_id` (`driver_id`),
+  CONSTRAINT `fk_driver_id` FOREIGN KEY (`driver_id`) REFERENCES `driver` (`driver_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=101 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `driver_rating`
+--
+
+LOCK TABLES `driver_rating` WRITE;
+/*!40000 ALTER TABLE `driver_rating` DISABLE KEYS */;
+INSERT INTO `driver_rating` VALUES (1,8,4),(2,1,2),(3,2,3),(4,1,2),(5,7,4),(6,1,2),(7,5,2),(8,7,5),(9,2,1),(10,4,3),(11,8,4),(12,2,2),(13,4,2),(14,4,4),(15,4,1),(16,3,1),(17,3,1),(18,3,1),(19,2,4),(20,4,5),(21,4,1),(22,3,5),(23,1,4),(24,6,2),(25,4,4),(26,4,1),(27,4,3),(28,3,3),(29,4,2),(30,3,2),(31,5,2),(32,2,4),(33,3,4),(34,8,3),(35,4,4),(36,8,3),(37,1,1),(38,6,4),(39,5,4),(40,6,1),(41,8,5),(42,5,4),(43,5,3),(44,4,2),(45,5,4),(46,1,4),(47,4,5),(48,8,3),(49,7,3),(50,4,2),(51,1,5),(52,6,2),(53,3,3),(54,8,4),(55,1,5),(56,3,5),(57,8,3),(58,5,2),(59,2,2),(60,2,1),(61,4,4),(62,4,4),(63,2,2),(64,1,5),(65,6,3),(66,1,3),(67,5,5),(68,1,1),(69,4,3),(70,6,4),(71,4,3),(72,7,1),(73,2,1),(74,5,3),(75,8,3),(76,7,3),(77,1,2),(78,4,4),(79,6,3),(80,5,4),(81,2,3),(82,1,2),(83,1,1),(84,8,3),(85,2,1),(86,2,3),(87,7,5),(88,7,3),(89,3,4),(90,5,3),(91,1,5),(92,4,1),(93,1,5),(94,7,3),(95,4,3),(96,4,3),(97,8,1),(98,7,2),(99,5,4),(100,3,3);
+/*!40000 ALTER TABLE `driver_rating` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `faculty`
 --
 
@@ -90,8 +111,8 @@ DROP TABLE IF EXISTS `faculty`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `faculty` (
-  `faculty_id` int(11) NOT NULL AUTO_INCREMENT,
-  `person_id` int(11) NOT NULL,
+  `faculty_id` int NOT NULL AUTO_INCREMENT,
+  `person_id` int NOT NULL,
   `title` varchar(75) DEFAULT NULL,
   `degree_college` varchar(75) DEFAULT NULL,
   `highest_degree` varchar(75) DEFAULT NULL,
@@ -119,7 +140,7 @@ DROP TABLE IF EXISTS `location`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `location` (
-  `location_id` int(11) NOT NULL AUTO_INCREMENT,
+  `location_id` int NOT NULL AUTO_INCREMENT,
   `location_name` varchar(75) DEFAULT NULL,
   `location_address` varchar(75) DEFAULT NULL,
   `latitude` varchar(75) DEFAULT NULL,
@@ -141,6 +162,62 @@ INSERT INTO `location` VALUES (1,'Suite 157','69612 Will Ferry\nEwellfort, KS 63
 /*!40000 ALTER TABLE `location` ENABLE KEYS */;
 UNLOCK TABLES;
 
+--
+-- Table structure for table `order`
+--
+
+DROP TABLE IF EXISTS `order`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `order` (
+  `order_id` int NOT NULL AUTO_INCREMENT,
+  `person_id` int NOT NULL,
+  `delivery_id` int NOT NULL,
+  `location_id` int NOT NULL,
+  `driver_id` int NOT NULL,
+  `restaurant_id` int NOT NULL,
+  `total_price` float NOT NULL,
+  `delivery_charge` float DEFAULT NULL,
+  PRIMARY KEY (`order_id`),
+  KEY `fk_O_person_id` (`person_id`),
+  KEY `fk_O_delivery_id` (`delivery_id`),
+  KEY `fk_O_location_id` (`location_id`),
+  KEY `fk_O_driver_id` (`driver_id`),
+  KEY `fk_O_restaurant_id` (`restaurant_id`),
+  CONSTRAINT `fk_O_delivery_id` FOREIGN KEY (`delivery_id`) REFERENCES `delivery` (`delivery_id`),
+  CONSTRAINT `fk_O_driver_id` FOREIGN KEY (`driver_id`) REFERENCES `driver` (`driver_id`),
+  CONSTRAINT `fk_O_location_id` FOREIGN KEY (`location_id`) REFERENCES `location` (`location_id`),
+  CONSTRAINT `fk_O_person_id` FOREIGN KEY (`person_id`) REFERENCES `person` (`person_id`),
+  CONSTRAINT `fk_O_restaurant_id` FOREIGN KEY (`restaurant_id`) REFERENCES `restaurant` (`restaurant_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=102 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `order`
+--
+
+LOCK TABLES `order` WRITE;
+/*!40000 ALTER TABLE `order` DISABLE KEYS */;
+INSERT INTO `order` VALUES (1,1,1,1,1,1,15.63,6.63),(2,2,2,2,2,2,18.03,9.43),(3,3,3,3,3,3,11.91,7.42),(4,4,4,4,4,4,19.13,6.26),(5,5,5,5,5,5,13.76,6.24),(6,6,6,6,6,6,5.4,4.83),(7,7,7,7,7,7,14.05,8.57),(8,8,8,8,8,8,3.81,2.38),(9,9,9,9,1,9,17.1,6.72),(10,10,10,10,2,10,12.71,1.82),(11,11,11,11,3,11,3.9,7.26),(12,12,12,12,4,12,6.82,7.4),(13,13,13,13,5,13,4.73,7.43),(14,14,14,14,6,14,12.08,1.21),(15,15,15,15,7,15,3.83,4.77),(16,16,16,16,8,16,12.43,2.76),(17,17,17,17,1,17,6.61,4.85),(18,18,18,18,2,18,7.89,5.69),(19,19,19,19,3,19,16.54,4.88),(20,20,20,20,4,20,3.21,4.98),(21,21,21,21,5,21,5.19,4.17),(22,22,22,22,6,22,19,1.39),(23,23,23,23,7,23,14.5,3.28),(24,24,24,24,8,24,11.81,2.71),(25,25,25,25,1,25,6.83,4.85),(26,26,26,26,2,26,7.24,5.65),(27,27,27,27,3,27,10.56,1.73),(28,28,28,28,4,28,4.25,4.98),(29,29,29,29,5,29,6.68,8.66),(30,30,30,30,6,30,14.5,6.47),(31,31,31,31,7,31,14.92,9.53),(32,32,32,32,8,32,4.12,9.42),(33,33,33,33,1,33,7.02,7.99),(34,34,34,34,2,34,8.6,6.69),(35,35,35,35,3,35,8.98,4.72),(36,36,36,36,4,36,7.94,4.78),(37,37,37,37,5,37,14.8,2.13),(38,38,38,38,6,38,19.05,6.61),(39,39,39,39,7,39,12.49,5.97),(40,40,40,40,8,40,15.56,6.01),(41,41,41,41,1,41,8.85,7.06),(42,42,42,42,2,42,12.28,5.52),(43,43,43,43,3,43,9.28,9.63),(44,44,44,44,4,44,9.78,8),(45,45,45,45,5,45,12.43,5.11),(46,46,46,46,6,46,4.11,9.65),(47,47,47,47,7,47,14.29,6.65),(48,48,48,48,8,48,5.69,3.31),(49,49,49,49,1,49,12.52,6.38),(50,50,50,50,2,50,8.84,9.92),(51,51,51,51,3,51,5.69,1.5),(52,52,52,52,4,52,14.53,4.58),(53,53,53,53,5,53,10.23,3.61),(54,54,54,54,6,54,10.7,7.36),(55,55,55,55,7,55,14.03,8.66),(56,56,56,56,8,56,13.46,1.26),(57,57,57,57,1,57,13.98,8.85),(58,58,58,58,2,58,15.21,6.59),(59,59,59,59,3,59,4.6,8.25),(60,60,60,60,4,60,3.27,6.39),(61,61,61,61,5,61,9.39,2.63),(62,62,62,62,6,62,3.7,2.47),(63,63,63,63,7,63,18.49,7.01),(64,64,64,64,8,64,15.51,8.26),(65,65,65,65,1,65,6.8,9.41),(66,66,66,66,2,66,12.57,1.88),(67,67,67,67,3,67,8.69,6.21),(68,68,68,68,4,68,9.38,9.56),(69,69,69,69,5,69,18.23,3.89),(70,70,70,70,6,70,13.39,9.65),(71,71,71,71,7,71,17.71,3.01),(72,72,72,72,8,72,10.59,2.03),(73,73,73,73,1,73,6.99,9.8),(74,74,74,74,2,74,14.14,3.98),(75,75,75,75,3,75,16.73,7.27),(76,76,76,76,4,76,6.64,5.09),(77,77,77,77,5,77,16.48,1.15),(78,78,78,78,6,78,18.61,6.49),(79,79,79,79,7,79,18.66,8.19),(80,80,80,80,8,80,7.6,9.54),(81,81,81,81,1,81,16.72,4.05),(82,82,82,82,2,82,5.64,7.18),(83,83,83,83,3,83,7.39,9.14),(84,84,84,84,4,84,11.61,1.57),(85,85,85,85,5,85,16.74,8.84),(86,86,86,86,6,86,19.88,2.43),(87,87,87,87,7,87,7.52,4.32),(88,88,88,88,8,88,14.63,4.4),(89,89,89,89,1,89,19.45,9.89),(90,90,90,90,2,90,12.5,8.23),(91,91,91,91,3,91,10.34,3.69),(92,92,92,92,4,92,11.34,6.34),(93,93,93,93,5,93,15.05,8.26),(94,94,94,94,6,94,7.89,7.05),(95,95,95,95,7,95,16.69,9.19),(96,96,96,96,8,96,5.71,8.39),(97,97,97,97,1,97,16.9,9.15),(98,98,98,98,2,98,15.63,8.92),(99,99,99,99,3,99,3.71,2.53),(100,100,100,100,4,100,5.08,2.74),(101,1,2,3,4,5,6,1);
+/*!40000 ALTER TABLE `order` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `order_AFTER_INSERT` AFTER INSERT ON `order` FOR EACH ROW BEGIN
+	insert into niner_eats.delivery (driver_id, vehicle_id) values(new.driver_id, 2);
+END */;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 
 --
 -- Table structure for table `person`
@@ -150,10 +227,10 @@ DROP TABLE IF EXISTS `person`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `person` (
-  `person_id` int(11) NOT NULL AUTO_INCREMENT,
+  `person_id` int NOT NULL AUTO_INCREMENT,
   `person_name` varchar(300) DEFAULT NULL,
   `person_email` varchar(150) DEFAULT NULL,
-  `cell` bigint(20) DEFAULT NULL,
+  `cell` bigint DEFAULT NULL,
   PRIMARY KEY (`person_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=206 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -207,7 +284,7 @@ DROP TABLE IF EXISTS `restaurant`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `restaurant` (
-  `restaurant_id` int(11) NOT NULL AUTO_INCREMENT,
+  `restaurant_id` int NOT NULL AUTO_INCREMENT,
   `location` varchar(75) DEFAULT NULL,
   `restaurant_name` varchar(75) DEFAULT NULL,
   `schedule` varchar(75) DEFAULT NULL,
@@ -227,6 +304,33 @@ INSERT INTO `restaurant` VALUES (1,'5357 Adrianna Shoal Suite 418\nEnochside, OH
 UNLOCK TABLES;
 
 --
+-- Table structure for table `restaurant_rating`
+--
+
+DROP TABLE IF EXISTS `restaurant_rating`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `restaurant_rating` (
+  `rating_id` mediumint unsigned NOT NULL AUTO_INCREMENT,
+  `restaurant_id` int NOT NULL,
+  `rating` mediumint DEFAULT NULL,
+  PRIMARY KEY (`rating_id`),
+  KEY `fk_restaurant_id` (`restaurant_id`),
+  CONSTRAINT `fk_restaurant_id` FOREIGN KEY (`restaurant_id`) REFERENCES `restaurant` (`restaurant_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=101 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `restaurant_rating`
+--
+
+LOCK TABLES `restaurant_rating` WRITE;
+/*!40000 ALTER TABLE `restaurant_rating` DISABLE KEYS */;
+INSERT INTO `restaurant_rating` VALUES (1,49,3),(2,47,5),(3,70,4),(4,42,1),(5,46,1),(6,34,2),(7,4,1),(8,36,3),(9,88,3),(10,1,5),(11,48,1),(12,31,3),(13,21,1),(14,58,5),(15,97,1),(16,45,1),(17,56,1),(18,3,1),(19,9,1),(20,79,3),(21,8,1),(22,48,4),(23,47,4),(24,55,2),(25,1,5),(26,66,4),(27,68,1),(28,19,2),(29,28,1),(30,28,4),(31,4,5),(32,26,1),(33,53,1),(34,15,4),(35,40,1),(36,58,3),(37,16,2),(38,77,5),(39,58,2),(40,29,4),(41,17,4),(42,63,5),(43,90,3),(44,30,4),(45,74,2),(46,56,4),(47,65,5),(48,50,5),(49,47,2),(50,92,1),(51,84,4),(52,89,3),(53,50,1),(54,34,1),(55,29,3),(56,68,4),(57,58,2),(58,66,1),(59,66,1),(60,85,1),(61,57,2),(62,39,2),(63,82,2),(64,97,5),(65,68,5),(66,85,2),(67,56,3),(68,12,4),(69,28,2),(70,86,4),(71,93,1),(72,8,3),(73,53,5),(74,16,5),(75,35,5),(76,91,3),(77,38,2),(78,12,4),(79,54,4),(80,16,5),(81,70,4),(82,34,5),(83,4,4),(84,53,1),(85,96,1),(86,82,2),(87,94,3),(88,11,2),(89,7,3),(90,58,3),(91,38,4),(92,73,1),(93,25,1),(94,42,4),(95,79,5),(96,16,2),(97,75,1),(98,66,5),(99,19,5),(100,35,4);
+/*!40000 ALTER TABLE `restaurant_rating` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `staff`
 --
 
@@ -234,8 +338,8 @@ DROP TABLE IF EXISTS `staff`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `staff` (
-  `staff_id` int(11) NOT NULL AUTO_INCREMENT,
-  `person_id` int(11) DEFAULT NULL,
+  `staff_id` int NOT NULL AUTO_INCREMENT,
+  `person_id` int DEFAULT NULL,
   `position` varchar(75) DEFAULT NULL,
   `is_admin` varchar(1) DEFAULT 'N',
   PRIMARY KEY (`staff_id`),
@@ -263,9 +367,9 @@ DROP TABLE IF EXISTS `student`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `student` (
-  `student_id` int(11) NOT NULL AUTO_INCREMENT,
-  `person_id` int(11) NOT NULL,
-  `graduation_year` int(4) DEFAULT NULL,
+  `student_id` int NOT NULL AUTO_INCREMENT,
+  `person_id` int NOT NULL,
+  `graduation_year` int DEFAULT NULL,
   `major` varchar(75) DEFAULT NULL,
   `type` varchar(75) DEFAULT NULL,
   PRIMARY KEY (`student_id`),
@@ -292,7 +396,7 @@ DROP TABLE IF EXISTS `vehicle`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `vehicle` (
-  `vehicle_id` int(11) NOT NULL AUTO_INCREMENT,
+  `vehicle_id` int NOT NULL AUTO_INCREMENT,
   `vehicle_plate` varchar(75) DEFAULT NULL,
   `model` varchar(75) DEFAULT NULL,
   `make` varchar(75) DEFAULT NULL,
@@ -311,40 +415,21 @@ INSERT INTO `vehicle` VALUES (1,'4333','p','Mercedes'),(2,'8289','y','BMW'),(3,'
 UNLOCK TABLES;
 
 --
--- Dumping events for database 'niner_eats'
+-- Dumping events for database 'Campus_Eats_Fall2020'
 --
-DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `calculate_average_driver_rating`(IN driver_id INT)
-BEGIN
-
-	SELECT AVG(driver_rating.rating) as drivers_average_rating
-	FROM driver_rating
-    WHERE driver_rating.driver_id = driver_id;
-    
-END ;;
-
-DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `calculate_average_restaurant_rating`(IN restaurant_id INT)
-BEGIN
-
-	SELECT AVG(restaurant_rating.rating) as restaurant_average_rating
-	FROM restaurant_rating
-    WHERE restaurant_rating.restaurant_id = restaurant_id;
-    
-END ;;
 
 --
--- Dumping routines for database 'niner_eats'
+-- Dumping routines for database 'Campus_Eats_Fall2020'
 --
 /*!50003 DROP PROCEDURE IF EXISTS `add_person` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = utf8mb4 */ ;
-/*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 SET sql_mode              = 'NO_AUTO_VALUE_ON_ZERO' */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `add_person`(in person_name varchar(300), in email varchar(150), cellno bigint (15), person_type varchar(10))
 BEGIN
@@ -364,7 +449,53 @@ DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
--- /*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `calculate_average_driver_rating` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_AUTO_VALUE_ON_ZERO' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `calculate_average_driver_rating`(IN driver_id INT)
+BEGIN
+
+	SELECT AVG(driver_rating.rating) as drivers_average_rating
+	FROM driver_rating
+    WHERE driver_rating.driver_id = driver_id;
+    
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `calculate_average_restaurant_rating` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_AUTO_VALUE_ON_ZERO' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `calculate_average_restaurant_rating`(IN restaurant_id INT)
+BEGIN
+
+	SELECT AVG(restaurant_rating.rating) as restaurant_average_rating
+	FROM restaurant_rating
+    WHERE restaurant_rating.restaurant_id = restaurant_id;
+    
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 
 --
 -- Final view structure for view `person_join`
@@ -376,13 +507,13 @@ DELIMITER ;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
 /*!50001 SET character_set_client      = utf8mb4 */;
 /*!50001 SET character_set_results     = utf8mb4 */;
--- /*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+/*!50001 SET collation_connection      = utf8_general_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `person_join` AS select `person`.`person_id` AS `person_id`,`person`.`person_name` AS `person_name`,`person`.`person_email` AS `person_email`,`student`.`student_id` AS `student_id`,`student`.`graduation_year` AS `graduation_year` from (`person` join `student` on((`student`.`person_id` = `person`.`person_id`))) where (`student`.`major` = 'Computer Science') */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
--- /*!50001 SET collation_connection      = @saved_col_connection */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
 
 --
 -- Final view structure for view `person_student`
@@ -394,13 +525,13 @@ DELIMITER ;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
 /*!50001 SET character_set_client      = utf8mb4 */;
 /*!50001 SET character_set_results     = utf8mb4 */;
--- /*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+/*!50001 SET collation_connection      = utf8_general_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `person_student` AS select `a`.`person_id` AS `person_id`,`a`.`person_name` AS `person_name`,`a`.`person_email` AS `person_email`,`a`.`cell` AS `cell` from `person` `a` where `a`.`person_id` in (select `student`.`person_id` from `student` where (`student`.`graduation_year` = 2019)) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
--- /*!50001 SET collation_connection      = @saved_col_connection */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -408,220 +539,7 @@ DELIMITER ;
 /*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
--- /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-12-02 21:16:05
---
--- Table structure for table `order`
---
-
-DROP TABLE IF EXISTS `order`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `order` (
-  `order_id` int(11) NOT NULL AUTO_INCREMENT,
-  `person_id` int(11) NOT NULL,
-  `delivery_id` int(11) NOT NULL,
-  `location_id` int(11) NOT NULL,
-  `driver_id` int(11) NOT NULL,
-  `restaurant_id` int(11) NOT NULL,
-  `total_price` float NOT NULL,
-  `delivery_charge` float DEFAULT NULL,
-  PRIMARY KEY (`order_id`),
-  KEY `fk_O_person_id` (`person_id`),
-  KEY `fk_O_delivery_id` (`delivery_id`),
-  KEY `fk_O_location_id` (`location_id`),
-  KEY `fk_O_driver_id` (`driver_id`),
-  KEY `fk_O_restaurant_id` (`restaurant_id`),
-  CONSTRAINT `fk_O_delivery_id` FOREIGN KEY (`delivery_id`) REFERENCES `delivery` (`delivery_id`),
-  CONSTRAINT `fk_O_driver_id` FOREIGN KEY (`driver_id`) REFERENCES `driver` (`driver_id`),
-  CONSTRAINT `fk_O_location_id` FOREIGN KEY (`location_id`) REFERENCES `location` (`location_id`),
-  CONSTRAINT `fk_O_person_id` FOREIGN KEY (`person_id`) REFERENCES `person` (`person_id`),
-  CONSTRAINT `fk_O_restaurant_id` FOREIGN KEY (`restaurant_id`) REFERENCES `restaurant` (`restaurant_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=102 DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `order`
---
-
-LOCK TABLES `order` WRITE;
-/*!40000 ALTER TABLE `order` DISABLE KEYS */;
-INSERT INTO `order` VALUES (1,1,1,1,1,1,15.63,6.63),(2,2,2,2,2,2,18.03,9.43),(3,3,3,3,3,3,11.91,7.42),(4,4,4,4,4,4,19.13,6.26),(5,5,5,5,5,5,13.76,6.24),(6,6,6,6,6,6,5.4,4.83),(7,7,7,7,7,7,14.05,8.57),(8,8,8,8,8,8,3.81,2.38),(9,9,9,9,1,9,17.1,6.72),(10,10,10,10,2,10,12.71,1.82),(11,11,11,11,3,11,3.9,7.26),(12,12,12,12,4,12,6.82,7.4),(13,13,13,13,5,13,4.73,7.43),(14,14,14,14,6,14,12.08,1.21),(15,15,15,15,7,15,3.83,4.77),(16,16,16,16,8,16,12.43,2.76),(17,17,17,17,1,17,6.61,4.85),(18,18,18,18,2,18,7.89,5.69),(19,19,19,19,3,19,16.54,4.88),(20,20,20,20,4,20,3.21,4.98),(21,21,21,21,5,21,5.19,4.17),(22,22,22,22,6,22,19,1.39),(23,23,23,23,7,23,14.5,3.28),(24,24,24,24,8,24,11.81,2.71),(25,25,25,25,1,25,6.83,4.85),(26,26,26,26,2,26,7.24,5.65),(27,27,27,27,3,27,10.56,1.73),(28,28,28,28,4,28,4.25,4.98),(29,29,29,29,5,29,6.68,8.66),(30,30,30,30,6,30,14.5,6.47),(31,31,31,31,7,31,14.92,9.53),(32,32,32,32,8,32,4.12,9.42),(33,33,33,33,1,33,7.02,7.99),(34,34,34,34,2,34,8.6,6.69),(35,35,35,35,3,35,8.98,4.72),(36,36,36,36,4,36,7.94,4.78),(37,37,37,37,5,37,14.8,2.13),(38,38,38,38,6,38,19.05,6.61),(39,39,39,39,7,39,12.49,5.97),(40,40,40,40,8,40,15.56,6.01),(41,41,41,41,1,41,8.85,7.06),(42,42,42,42,2,42,12.28,5.52),(43,43,43,43,3,43,9.28,9.63),(44,44,44,44,4,44,9.78,8),(45,45,45,45,5,45,12.43,5.11),(46,46,46,46,6,46,4.11,9.65),(47,47,47,47,7,47,14.29,6.65),(48,48,48,48,8,48,5.69,3.31),(49,49,49,49,1,49,12.52,6.38),(50,50,50,50,2,50,8.84,9.92),(51,51,51,51,3,51,5.69,1.5),(52,52,52,52,4,52,14.53,4.58),(53,53,53,53,5,53,10.23,3.61),(54,54,54,54,6,54,10.7,7.36),(55,55,55,55,7,55,14.03,8.66),(56,56,56,56,8,56,13.46,1.26),(57,57,57,57,1,57,13.98,8.85),(58,58,58,58,2,58,15.21,6.59),(59,59,59,59,3,59,4.6,8.25),(60,60,60,60,4,60,3.27,6.39),(61,61,61,61,5,61,9.39,2.63),(62,62,62,62,6,62,3.7,2.47),(63,63,63,63,7,63,18.49,7.01),(64,64,64,64,8,64,15.51,8.26),(65,65,65,65,1,65,6.8,9.41),(66,66,66,66,2,66,12.57,1.88),(67,67,67,67,3,67,8.69,6.21),(68,68,68,68,4,68,9.38,9.56),(69,69,69,69,5,69,18.23,3.89),(70,70,70,70,6,70,13.39,9.65),(71,71,71,71,7,71,17.71,3.01),(72,72,72,72,8,72,10.59,2.03),(73,73,73,73,1,73,6.99,9.8),(74,74,74,74,2,74,14.14,3.98),(75,75,75,75,3,75,16.73,7.27),(76,76,76,76,4,76,6.64,5.09),(77,77,77,77,5,77,16.48,1.15),(78,78,78,78,6,78,18.61,6.49),(79,79,79,79,7,79,18.66,8.19),(80,80,80,80,8,80,7.6,9.54),(81,81,81,81,1,81,16.72,4.05),(82,82,82,82,2,82,5.64,7.18),(83,83,83,83,3,83,7.39,9.14),(84,84,84,84,4,84,11.61,1.57),(85,85,85,85,5,85,16.74,8.84),(86,86,86,86,6,86,19.88,2.43),(87,87,87,87,7,87,7.52,4.32),(88,88,88,88,8,88,14.63,4.4),(89,89,89,89,1,89,19.45,9.89),(90,90,90,90,2,90,12.5,8.23),(91,91,91,91,3,91,10.34,3.69),(92,92,92,92,4,92,11.34,6.34),(93,93,93,93,5,93,15.05,8.26),(94,94,94,94,6,94,7.89,7.05),(95,95,95,95,7,95,16.69,9.19),(96,96,96,96,8,96,5.71,8.39),(97,97,97,97,1,97,16.9,9.15),(98,98,98,98,2,98,15.63,8.92),(99,99,99,99,3,99,3.71,2.53),(100,100,100,100,4,100,5.08,2.74),(101,1,2,3,4,5,6,1);
-/*!40000 ALTER TABLE `order` ENABLE KEYS */;
-UNLOCK TABLES;
-/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
-/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
-/*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = utf8mb4 */ ;
-/*!50003 SET character_set_results = utf8mb4 */ ;
--- /*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
-/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
-DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `order_AFTER_INSERT` AFTER INSERT ON `order` FOR EACH ROW BEGIN
-	insert into niner_eats.delivery (driver_id, vehicle_id) values(new.driver_id, 2);
-END */;;
-DELIMITER ;
-/*!50003 SET sql_mode              = @saved_sql_mode */ ;
-/*!50003 SET character_set_client  = @saved_cs_client */ ;
-/*!50003 SET character_set_results = @saved_cs_results */ ;
--- /*!50003 SET collation_connection  = @saved_col_connection */ ;
-
--- DRIVER_RATING
--- DROP TABLE `driver_rating`;
-
-CREATE TABLE `driver_rating` (
-  `rating_id` mediumint(8) unsigned NOT NULL auto_increment,
-  `driver_id` int(11) NOT NULL,
-  `rating` mediumint default NULL,
-  PRIMARY KEY (`rating_id`),
-  KEY `fk_driver_id` (`driver_id`),
-  CONSTRAINT `fk_driver_id` FOREIGN KEY (`driver_id`) REFERENCES `driver` (`driver_id`)
-  -- CONSTRAINT `fk_O_driver_id` FOREIGN KEY (`driver_id`) REFERENCES `driver` (`driver_id`),
-) AUTO_INCREMENT=1;
-
-INSERT INTO `driver_rating` (`driver_id`,`rating`,`rating_id`) VALUES (8,4,1),(1,2,2),(2,3,3),(1,2,4),(7,4,5),(1,2,6),(5,2,7),(7,5,8),(2,1,9),(4,3,10);
-INSERT INTO `driver_rating` (`driver_id`,`rating`,`rating_id`) VALUES (8,4,11),(2,2,12),(4,2,13),(4,4,14),(4,1,15),(3,1,16),(3,1,17),(3,1,18),(2,4,19),(4,5,20);
-INSERT INTO `driver_rating` (`driver_id`,`rating`,`rating_id`) VALUES (4,1,21),(3,5,22),(1,4,23),(6,2,24),(4,4,25),(4,1,26),(4,3,27),(3,3,28),(4,2,29),(3,2,30);
-INSERT INTO `driver_rating` (`driver_id`,`rating`,`rating_id`) VALUES (5,2,31),(2,4,32),(3,4,33),(8,3,34),(4,4,35),(8,3,36),(1,1,37),(6,4,38),(5,4,39),(6,1,40);
-INSERT INTO `driver_rating` (`driver_id`,`rating`,`rating_id`) VALUES (8,5,41),(5,4,42),(5,3,43),(4,2,44),(5,4,45),(1,4,46),(4,5,47),(8,3,48),(7,3,49),(4,2,50);
-INSERT INTO `driver_rating` (`driver_id`,`rating`,`rating_id`) VALUES (1,5,51),(6,2,52),(3,3,53),(8,4,54),(1,5,55),(3,5,56),(8,3,57),(5,2,58),(2,2,59),(2,1,60);
-INSERT INTO `driver_rating` (`driver_id`,`rating`,`rating_id`) VALUES (4,4,61),(4,4,62),(2,2,63),(1,5,64),(6,3,65),(1,3,66),(5,5,67),(1,1,68),(4,3,69),(6,4,70);
-INSERT INTO `driver_rating` (`driver_id`,`rating`,`rating_id`) VALUES (4,3,71),(7,1,72),(2,1,73),(5,3,74),(8,3,75),(7,3,76),(1,2,77),(4,4,78),(6,3,79),(5,4,80);
-INSERT INTO `driver_rating` (`driver_id`,`rating`,`rating_id`) VALUES (2,3,81),(1,2,82),(1,1,83),(8,3,84),(2,1,85),(2,3,86),(7,5,87),(7,3,88),(3,4,89),(5,3,90);
-INSERT INTO `driver_rating` (`driver_id`,`rating`,`rating_id`) VALUES (1,5,91),(4,1,92),(1,5,93),(7,3,94),(4,3,95),(4,3,96),(8,1,97),(7,2,98),(5,4,99),(3,3,100);
-
--- RESTAURANT_RATING TABLE 
--- DROP TABLE `restaurant_rating`;
-
-CREATE TABLE `restaurant_rating` (
-  `rating_id` mediumint(8) unsigned NOT NULL auto_increment,
-  `restaurant_id` int(11) NOT NULL,
-  `rating` mediumint default NULL,
-  PRIMARY KEY (`rating_id`),
-  KEY `fk_restaurant_id` (`restaurant_id`),
-  CONSTRAINT `fk_restaurant_id` FOREIGN KEY (`restaurant_id`) REFERENCES `restaurant` (`restaurant_id`)
-) AUTO_INCREMENT=1;
-
-INSERT INTO `restaurant_rating` (`restaurant_id`,`rating`,`rating_id`) VALUES (49,3,1),(47,5,2),(70,4,3),(42,1,4),(46,1,5),(34,2,6),(4,1,7),(36,3,8),(88,3,9),(1,5,10);
-INSERT INTO `restaurant_rating` (`restaurant_id`,`rating`,`rating_id`) VALUES (48,1,11),(31,3,12),(21,1,13),(58,5,14),(97,1,15),(45,1,16),(56,1,17),(3,1,18),(9,1,19),(79,3,20);
-INSERT INTO `restaurant_rating` (`restaurant_id`,`rating`,`rating_id`) VALUES (8,1,21),(48,4,22),(47,4,23),(55,2,24),(1,5,25),(66,4,26),(68,1,27),(19,2,28),(28,1,29),(28,4,30);
-INSERT INTO `restaurant_rating` (`restaurant_id`,`rating`,`rating_id`) VALUES (4,5,31),(26,1,32),(53,1,33),(15,4,34),(40,1,35),(58,3,36),(16,2,37),(77,5,38),(58,2,39),(29,4,40);
-INSERT INTO `restaurant_rating` (`restaurant_id`,`rating`,`rating_id`) VALUES (17,4,41),(63,5,42),(90,3,43),(30,4,44),(74,2,45),(56,4,46),(65,5,47),(50,5,48),(47,2,49),(92,1,50);
-INSERT INTO `restaurant_rating` (`restaurant_id`,`rating`,`rating_id`) VALUES (84,4,51),(89,3,52),(50,1,53),(34,1,54),(29,3,55),(68,4,56),(58,2,57),(66,1,58),(66,1,59),(85,1,60);
-INSERT INTO `restaurant_rating` (`restaurant_id`,`rating`,`rating_id`) VALUES (57,2,61),(39,2,62),(82,2,63),(97,5,64),(68,5,65),(85,2,66),(56,3,67),(12,4,68),(28,2,69),(86,4,70);
-INSERT INTO `restaurant_rating` (`restaurant_id`,`rating`,`rating_id`) VALUES (93,1,71),(8,3,72),(53,5,73),(16,5,74),(35,5,75),(91,3,76),(38,2,77),(12,4,78),(54,4,79),(16,5,80);
-INSERT INTO `restaurant_rating` (`restaurant_id`,`rating`,`rating_id`) VALUES (70,4,81),(34,5,82),(4,4,83),(53,1,84),(96,1,85),(82,2,86),(94,3,87),(11,2,88),(7,3,89),(58,3,90);
-INSERT INTO `restaurant_rating` (`restaurant_id`,`rating`,`rating_id`) VALUES (38,4,91),(73,1,92),(25,1,93),(42,4,94),(79,5,95),(16,2,96),(75,1,97),(66,5,98),(19,5,99),(35,4,100);
-
--- UPDATE DELIVERY TABLE
-
--- DROP TABLE `delivery`;
-
-ALTER TABLE delivery
-ADD COLUMN pickup_time DATETIME;
-ALTER TABLE delivery
-ADD COLUMN dropoff_time DATETIME;
-
-UPDATE `delivery` SET `pickup_time` = "2020-04-16 15:43:52", `dropoff_time` = "2021-10-11 19:09:43", `driver_id` = 4, `vehicle_id` = 7 WHERE `delivery_id` = 1;
-UPDATE `delivery` SET `pickup_time` = "2020-04-16 20:05:07", `dropoff_time` = "2020-10-15 23:34:01", `driver_id` = 2, `vehicle_id` = 17 WHERE `delivery_id` = 2;
-UPDATE `delivery` SET `pickup_time` = "2020-12-17 20:14:55", `dropoff_time` = "2021-03-08 09:18:22", `driver_id` = 7, `vehicle_id` = 6 WHERE `delivery_id` = 3;
-UPDATE `delivery` SET `pickup_time` = "2021-07-02 03:37:06", `dropoff_time` = "2020-12-22 00:54:15", `driver_id` = 7, `vehicle_id` = 10 WHERE `delivery_id` = 4;
-UPDATE `delivery` SET `pickup_time` = "2021-03-29 12:30:17", `dropoff_time` = "2020-11-23 05:56:35", `driver_id` = 1, `vehicle_id` = 2 WHERE `delivery_id` = 5;
-UPDATE `delivery` SET `pickup_time` = "2020-02-21 08:48:29", `dropoff_time` = "2020-07-23 05:57:33", `driver_id` = 3, `vehicle_id` = 5 WHERE `delivery_id` = 6;
-UPDATE `delivery` SET `pickup_time` = "2020-09-28 05:36:56", `dropoff_time` = "2020-10-17 17:33:02", `driver_id` = 4, `vehicle_id` = 4 WHERE `delivery_id` = 7;
-UPDATE `delivery` SET `pickup_time` = "2020-08-26 14:50:08", `dropoff_time` = "2020-11-16 05:27:22", `driver_id` = 5, `vehicle_id` = 20 WHERE `delivery_id` = 8;
-UPDATE `delivery` SET `pickup_time` = "2019-12-07 00:37:55", `dropoff_time` = "2020-02-17 10:00:09", `driver_id` = 1, `vehicle_id` = 10 WHERE `delivery_id` = 9;
-UPDATE `delivery` SET `pickup_time` = "2020-03-16 03:27:03", `dropoff_time` = "2020-06-23 16:32:53", `driver_id` = 5, `vehicle_id` = 20 WHERE `delivery_id` = 10;
-UPDATE `delivery` SET `pickup_time` = "2020-01-19 08:24:57", `dropoff_time` = "2021-04-28 19:21:21", `driver_id` = 5, `vehicle_id` = 2 WHERE `delivery_id` = 11;
-UPDATE `delivery` SET `pickup_time` = "2020-07-27 03:09:16", `dropoff_time` = "2020-10-03 00:57:04", `driver_id` = 1, `vehicle_id` = 19 WHERE `delivery_id` = 12;
-UPDATE `delivery` SET `pickup_time` = "2020-03-07 22:25:37", `dropoff_time` = "2021-06-27 03:32:01", `driver_id` = 3, `vehicle_id` = 14 WHERE `delivery_id` = 13;
-UPDATE `delivery` SET `pickup_time` = "2020-09-17 06:31:58", `dropoff_time` = "2020-02-27 16:06:09", `driver_id` = 1, `vehicle_id` = 15 WHERE `delivery_id` = 14;
-UPDATE `delivery` SET `pickup_time` = "2021-02-24 07:22:12", `dropoff_time` = "2020-08-14 06:21:07", `driver_id` = 1, `vehicle_id` = 16 WHERE `delivery_id` = 15;
-UPDATE `delivery` SET `pickup_time` = "2022-01-06 13:40:31", `dropoff_time` = "2020-03-10 06:42:55", `driver_id` = 6, `vehicle_id` = 14 WHERE `delivery_id` = 16;
-UPDATE `delivery` SET `pickup_time` = "2021-07-25 08:49:53", `dropoff_time` = "2021-11-04 01:22:25", `driver_id` = 5, `vehicle_id` = 9 WHERE `delivery_id` = 17;
-UPDATE `delivery` SET `pickup_time` = "2021-12-11 17:30:57", `dropoff_time` = "2021-03-23 19:30:48", `driver_id` = 1, `vehicle_id` = 2 WHERE `delivery_id` = 18;
-UPDATE `delivery` SET `pickup_time` = "2020-10-14 08:31:15", `dropoff_time` = "2020-06-28 03:06:12", `driver_id` = 8, `vehicle_id` = 9 WHERE `delivery_id` = 19;
-UPDATE `delivery` SET `pickup_time` = "2020-06-21 19:58:45", `dropoff_time` = "2020-08-22 03:26:57", `driver_id` = 7, `vehicle_id` = 18 WHERE `delivery_id` = 20;
-UPDATE `delivery` SET `pickup_time` = "2021-07-24 01:11:53", `dropoff_time` = "2021-04-26 12:58:24", `driver_id` = 6, `vehicle_id` = 8 WHERE `delivery_id` = 21;
-UPDATE `delivery` SET `pickup_time` = "2020-04-24 18:09:44", `dropoff_time` = "2020-02-17 13:29:57", `driver_id` = 8, `vehicle_id` = 8 WHERE `delivery_id` = 22;
-UPDATE `delivery` SET `pickup_time` = "2021-01-05 01:37:53", `dropoff_time` = "2020-09-08 16:24:28", `driver_id` = 5, `vehicle_id` = 9 WHERE `delivery_id` = 23;
-UPDATE `delivery` SET `pickup_time` = "2021-08-06 01:32:29", `dropoff_time` = "2021-06-10 15:49:06", `driver_id` = 2, `vehicle_id` = 8 WHERE `delivery_id` = 24;
-UPDATE `delivery` SET `pickup_time` = "2021-11-26 15:28:19", `dropoff_time` = "2019-12-19 22:48:15", `driver_id` = 3, `vehicle_id` = 12 WHERE `delivery_id` = 25;
-UPDATE `delivery` SET `pickup_time` = "2020-01-21 16:29:31", `dropoff_time` = "2020-01-08 15:08:28", `driver_id` = 2, `vehicle_id` = 12 WHERE `delivery_id` = 26;
-UPDATE `delivery` SET `pickup_time` = "2020-10-18 12:42:56", `dropoff_time` = "2021-02-01 15:41:53", `driver_id` = 1, `vehicle_id` = 19 WHERE `delivery_id` = 27;
-UPDATE `delivery` SET `pickup_time` = "2021-04-02 21:49:50", `dropoff_time` = "2020-05-31 23:03:20", `driver_id` = 5, `vehicle_id` = 11 WHERE `delivery_id` = 28;
-UPDATE `delivery` SET `pickup_time` = "2020-05-09 19:22:29", `dropoff_time` = "2022-01-01 07:36:58", `driver_id` = 6, `vehicle_id` = 2 WHERE `delivery_id` = 29;
-UPDATE `delivery` SET `pickup_time` = "2021-06-30 17:56:05", `dropoff_time` = "2020-01-27 23:00:47", `driver_id` = 1, `vehicle_id` = 13 WHERE `delivery_id` = 30;
-UPDATE `delivery` SET `pickup_time` = "2020-11-23 18:23:50", `dropoff_time` = "2020-06-26 03:12:17", `driver_id` = 6, `vehicle_id` = 6 WHERE `delivery_id` = 31;
-UPDATE `delivery` SET `pickup_time` = "2021-04-03 02:09:00", `dropoff_time` = "2021-10-27 19:31:57", `driver_id` = 8, `vehicle_id` = 3 WHERE `delivery_id` = 32;
-UPDATE `delivery` SET `pickup_time` = "2021-10-18 22:13:12", `dropoff_time` = "2021-04-09 23:20:27", `driver_id` = 8, `vehicle_id` = 15 WHERE `delivery_id` = 33;
-UPDATE `delivery` SET `pickup_time` = "2021-11-15 09:23:39", `dropoff_time` = "2020-11-12 22:43:24", `driver_id` = 4, `vehicle_id` = 18 WHERE `delivery_id` = 34;
-UPDATE `delivery` SET `pickup_time` = "2020-07-14 06:00:32", `dropoff_time` = "2020-02-05 02:31:15", `driver_id` = 3, `vehicle_id` = 18 WHERE `delivery_id` = 35;
-UPDATE `delivery` SET `pickup_time` = "2021-08-30 23:37:55", `dropoff_time` = "2021-12-20 11:03:43", `driver_id` = 6, `vehicle_id` = 2 WHERE `delivery_id` = 36;
-UPDATE `delivery` SET `pickup_time` = "2021-12-21 23:37:05", `dropoff_time` = "2020-07-28 02:23:55", `driver_id` = 4, `vehicle_id` = 9 WHERE `delivery_id` = 37;
-UPDATE `delivery` SET `pickup_time` = "2020-10-17 23:51:25", `dropoff_time` = "2021-01-01 15:53:29", `driver_id` = 8, `vehicle_id` = 6 WHERE `delivery_id` = 38;
-UPDATE `delivery` SET `pickup_time` = "2021-04-14 02:18:00", `dropoff_time` = "2020-04-01 10:21:36", `driver_id` = 1, `vehicle_id` = 17 WHERE `delivery_id` = 39;
-UPDATE `delivery` SET `pickup_time` = "2020-05-23 02:11:57", `dropoff_time` = "2021-01-31 07:33:17", `driver_id` = 1, `vehicle_id` = 11 WHERE `delivery_id` = 40;
-UPDATE `delivery` SET `pickup_time` = "2021-11-11 10:02:32", `dropoff_time` = "2020-04-08 02:27:40", `driver_id` = 5, `vehicle_id` = 19 WHERE `delivery_id` = 41;
-UPDATE `delivery` SET `pickup_time` = "2021-03-13 20:19:40", `dropoff_time` = "2020-05-05 15:57:41", `driver_id` = 4, `vehicle_id` = 19 WHERE `delivery_id` = 42;
-UPDATE `delivery` SET `pickup_time` = "2020-06-14 06:01:13", `dropoff_time` = "2020-05-17 12:35:28", `driver_id` = 1, `vehicle_id` = 6 WHERE `delivery_id` = 43;
-UPDATE `delivery` SET `pickup_time` = "2021-09-21 18:34:51", `dropoff_time` = "2020-04-29 18:50:23", `driver_id` = 4, `vehicle_id` = 8 WHERE `delivery_id` = 44;
-UPDATE `delivery` SET `pickup_time` = "2022-01-06 02:28:01", `dropoff_time` = "2021-04-22 21:44:47", `driver_id` = 2, `vehicle_id` = 1 WHERE `delivery_id` = 45;
-UPDATE `delivery` SET `pickup_time` = "2021-05-05 07:57:47", `dropoff_time` = "2021-08-03 13:22:17", `driver_id` = 1, `vehicle_id` = 6 WHERE `delivery_id` = 46;
-UPDATE `delivery` SET `pickup_time` = "2021-03-25 20:02:16", `dropoff_time` = "2020-09-01 20:17:01", `driver_id` = 4, `vehicle_id` = 3 WHERE `delivery_id` = 47;
-UPDATE `delivery` SET `pickup_time` = "2021-04-21 11:07:50", `dropoff_time` = "2021-10-08 17:14:54", `driver_id` = 3, `vehicle_id` = 15 WHERE `delivery_id` = 48;
-UPDATE `delivery` SET `pickup_time` = "2020-01-28 07:04:04", `dropoff_time` = "2021-02-10 15:35:05", `driver_id` = 7, `vehicle_id` = 7 WHERE `delivery_id` = 49;
-UPDATE `delivery` SET `pickup_time` = "2020-03-15 01:39:18", `dropoff_time` = "2021-05-12 08:11:33", `driver_id` = 7, `vehicle_id` = 11 WHERE `delivery_id` = 50;
-UPDATE `delivery` SET `pickup_time` = "2021-05-26 12:55:39", `dropoff_time` = "2021-05-18 06:30:14", `driver_id` = 7, `vehicle_id` = 18 WHERE `delivery_id` = 51;
-UPDATE `delivery` SET `pickup_time` = "2020-11-09 16:17:25", `dropoff_time` = "2020-01-05 21:11:00", `driver_id` = 4, `vehicle_id` = 2 WHERE `delivery_id` = 52;
-UPDATE `delivery` SET `pickup_time` = "2021-12-02 09:01:49", `dropoff_time` = "2021-06-20 17:03:47", `driver_id` = 3, `vehicle_id` = 16 WHERE `delivery_id` = 53;
-UPDATE `delivery` SET `pickup_time` = "2020-11-28 04:42:38", `dropoff_time` = "2020-07-03 20:28:15", `driver_id` = 1, `vehicle_id` = 19 WHERE `delivery_id` = 54;
-UPDATE `delivery` SET `pickup_time` = "2020-01-26 04:15:24", `dropoff_time` = "2020-01-05 13:33:41", `driver_id` = 2, `vehicle_id` = 6 WHERE `delivery_id` = 55;
-UPDATE `delivery` SET `pickup_time` = "2021-06-02 13:43:41", `dropoff_time` = "2020-01-18 19:34:54", `driver_id` = 3, `vehicle_id` = 1 WHERE `delivery_id` = 56;
-UPDATE `delivery` SET `pickup_time` = "2021-10-15 12:00:44", `dropoff_time` = "2020-02-16 21:37:04", `driver_id` = 8, `vehicle_id` = 11 WHERE `delivery_id` = 57;
-UPDATE `delivery` SET `pickup_time` = "2021-08-03 14:17:29", `dropoff_time` = "2020-10-09 07:18:57", `driver_id` = 4, `vehicle_id` = 4 WHERE `delivery_id` = 58;
-UPDATE `delivery` SET `pickup_time` = "2019-12-07 18:55:23", `dropoff_time` = "2020-01-12 02:02:41", `driver_id` = 6, `vehicle_id` = 14 WHERE `delivery_id` = 59;
-UPDATE `delivery` SET `pickup_time` = "2020-01-17 03:56:23", `dropoff_time` = "2021-12-19 04:35:19", `driver_id` = 1, `vehicle_id` = 8 WHERE `delivery_id` = 60;
-UPDATE `delivery` SET `pickup_time` = "2021-09-15 19:37:21", `dropoff_time` = "2021-02-05 21:10:03", `driver_id` = 8, `vehicle_id` = 4 WHERE `delivery_id` = 61;
-UPDATE `delivery` SET `pickup_time` = "2019-12-06 06:48:48", `dropoff_time` = "2021-05-02 06:00:35", `driver_id` = 6, `vehicle_id` = 8 WHERE `delivery_id` = 62;
-UPDATE `delivery` SET `pickup_time` = "2019-12-28 06:06:20", `dropoff_time` = "2020-11-18 20:33:26", `driver_id` = 4, `vehicle_id` = 10 WHERE `delivery_id` = 63;
-UPDATE `delivery` SET `pickup_time` = "2020-08-05 02:15:41", `dropoff_time` = "2020-08-13 16:46:37", `driver_id` = 8, `vehicle_id` = 3 WHERE `delivery_id` = 64;
-UPDATE `delivery` SET `pickup_time` = "2020-10-04 21:03:11", `dropoff_time` = "2020-08-27 00:17:12", `driver_id` = 6, `vehicle_id` = 2 WHERE `delivery_id` = 65;
-UPDATE `delivery` SET `pickup_time` = "2020-10-13 09:37:47", `dropoff_time` = "2020-07-06 03:20:11", `driver_id` = 7, `vehicle_id` = 15 WHERE `delivery_id` = 66;
-UPDATE `delivery` SET `pickup_time` = "2021-06-19 15:41:46", `dropoff_time` = "2019-12-25 06:41:31", `driver_id` = 3, `vehicle_id` = 14 WHERE `delivery_id` = 67;
-UPDATE `delivery` SET `pickup_time` = "2021-01-21 00:52:43", `dropoff_time` = "2021-11-23 01:23:37", `driver_id` = 4, `vehicle_id` = 18 WHERE `delivery_id` = 68;
-UPDATE `delivery` SET `pickup_time` = "2021-11-10 09:07:50", `dropoff_time` = "2020-03-26 23:03:31", `driver_id` = 3, `vehicle_id` = 5 WHERE `delivery_id` = 69;
-UPDATE `delivery` SET `pickup_time` = "2020-04-18 07:40:48", `dropoff_time` = "2021-11-25 13:15:44", `driver_id` = 6, `vehicle_id` = 1 WHERE `delivery_id` = 70;
-UPDATE `delivery` SET `pickup_time` = "2021-06-05 15:33:01", `dropoff_time` = "2021-05-22 15:26:15", `driver_id` = 2, `vehicle_id` = 19 WHERE `delivery_id` = 71;
-UPDATE `delivery` SET `pickup_time` = "2021-10-23 23:30:38", `dropoff_time` = "2020-09-20 06:08:17", `driver_id` = 7, `vehicle_id` = 3 WHERE `delivery_id` = 72;
-UPDATE `delivery` SET `pickup_time` = "2020-11-07 05:42:55", `dropoff_time` = "2020-10-27 20:10:41", `driver_id` = 7, `vehicle_id` = 12 WHERE `delivery_id` = 73;
-UPDATE `delivery` SET `pickup_time` = "2021-11-30 22:19:32", `dropoff_time` = "2021-06-26 07:49:39", `driver_id` = 1, `vehicle_id` = 17 WHERE `delivery_id` = 74;
-UPDATE `delivery` SET `pickup_time` = "2021-01-07 16:45:35", `dropoff_time` = "2021-08-10 21:09:21", `driver_id` = 6, `vehicle_id` = 4 WHERE `delivery_id` = 75;
-UPDATE `delivery` SET `pickup_time` = "2020-03-22 08:34:52", `dropoff_time` = "2021-11-21 04:42:53", `driver_id` = 5, `vehicle_id` = 20 WHERE `delivery_id` = 76;
-UPDATE `delivery` SET `pickup_time` = "2021-05-01 06:43:30", `dropoff_time` = "2021-03-22 01:25:31", `driver_id` = 8, `vehicle_id` = 14 WHERE `delivery_id` = 77;
-UPDATE `delivery` SET `pickup_time` = "2021-09-17 17:47:09", `dropoff_time` = "2022-01-02 14:00:27", `driver_id` = 8, `vehicle_id` = 19 WHERE `delivery_id` = 78;
-UPDATE `delivery` SET `pickup_time` = "2021-01-21 23:48:12", `dropoff_time` = "2021-06-21 04:32:11", `driver_id` = 3, `vehicle_id` = 13 WHERE `delivery_id` = 79;
-UPDATE `delivery` SET `pickup_time` = "2020-03-06 19:28:08", `dropoff_time` = "2020-07-03 01:43:06", `driver_id` = 5, `vehicle_id` = 16 WHERE `delivery_id` = 80;
-UPDATE `delivery` SET `pickup_time` = "2021-07-07 00:45:13", `dropoff_time` = "2020-06-13 03:28:11", `driver_id` = 3, `vehicle_id` = 17 WHERE `delivery_id` = 81;
-UPDATE `delivery` SET `pickup_time` = "2021-02-09 20:34:26", `dropoff_time` = "2019-12-07 00:32:43", `driver_id` = 5, `vehicle_id` = 5 WHERE `delivery_id` = 82;
-UPDATE `delivery` SET `pickup_time` = "2021-04-09 12:22:39", `dropoff_time` = "2021-11-30 20:56:12", `driver_id` = 3, `vehicle_id` = 4 WHERE `delivery_id` = 83;
-UPDATE `delivery` SET `pickup_time` = "2021-04-07 02:41:29", `dropoff_time` = "2020-12-06 12:31:27", `driver_id` = 7, `vehicle_id` = 10 WHERE `delivery_id` = 84;
-UPDATE `delivery` SET `pickup_time` = "2019-12-27 04:20:17", `dropoff_time` = "2021-08-17 10:14:12", `driver_id` = 3, `vehicle_id` = 8 WHERE `delivery_id` = 85;
-UPDATE `delivery` SET `pickup_time` = "2020-03-28 19:21:59", `dropoff_time` = "2020-09-01 23:46:50", `driver_id` = 4, `vehicle_id` = 11 WHERE `delivery_id` = 86;
-UPDATE `delivery` SET `pickup_time` = "2021-04-14 10:25:08", `dropoff_time` = "2020-05-19 01:28:28", `driver_id` = 8, `vehicle_id` = 8 WHERE `delivery_id` = 87;
-UPDATE `delivery` SET `pickup_time` = "2021-03-12 10:45:25", `dropoff_time` = "2022-01-24 22:53:29", `driver_id` = 2, `vehicle_id` = 4 WHERE `delivery_id` = 88;
-UPDATE `delivery` SET `pickup_time` = "2021-01-13 11:31:34", `dropoff_time` = "2020-03-31 14:47:44", `driver_id` = 5, `vehicle_id` = 16 WHERE `delivery_id` = 89;
-UPDATE `delivery` SET `pickup_time` = "2021-10-15 11:07:00", `dropoff_time` = "2020-10-27 14:49:59", `driver_id` = 5, `vehicle_id` = 20 WHERE `delivery_id` = 90;
-UPDATE `delivery` SET `pickup_time` = "2020-07-25 08:22:43", `dropoff_time` = "2020-05-15 05:28:29", `driver_id` = 8, `vehicle_id` = 12 WHERE `delivery_id` = 91;
-UPDATE `delivery` SET `pickup_time` = "2021-12-08 05:48:24", `dropoff_time` = "2020-06-02 15:05:31", `driver_id` = 5, `vehicle_id` = 8 WHERE `delivery_id` = 92;
-UPDATE `delivery` SET `pickup_time` = "2021-06-23 03:59:02", `dropoff_time` = "2021-08-23 02:05:14", `driver_id` = 2, `vehicle_id` = 17 WHERE `delivery_id` = 93;
-UPDATE `delivery` SET `pickup_time` = "2020-01-29 07:29:41", `dropoff_time` = "2021-10-22 16:59:22", `driver_id` = 3, `vehicle_id` = 2 WHERE `delivery_id` = 94;
-UPDATE `delivery` SET `pickup_time` = "2021-12-30 06:44:36", `dropoff_time` = "2020-09-09 21:41:51", `driver_id` = 3, `vehicle_id` = 13 WHERE `delivery_id` = 95;
-UPDATE `delivery` SET `pickup_time` = "2020-10-09 01:20:28", `dropoff_time` = "2021-08-21 17:49:07", `driver_id` = 6, `vehicle_id` = 1 WHERE `delivery_id` = 96;
-UPDATE `delivery` SET `pickup_time` = "2020-03-05 18:04:23", `dropoff_time` = "2021-04-13 02:39:56", `driver_id` = 3, `vehicle_id` = 13 WHERE `delivery_id` = 97;
-UPDATE `delivery` SET `pickup_time` = "2021-01-30 05:13:23", `dropoff_time` = "2021-07-17 05:03:35", `driver_id` = 1, `vehicle_id` = 13 WHERE `delivery_id` = 98;
-UPDATE `delivery` SET `pickup_time` = "2020-01-07 17:00:42", `dropoff_time` = "2021-08-22 22:42:11", `driver_id` = 4, `vehicle_id` = 12 WHERE `delivery_id` = 99;
-UPDATE `delivery` SET `pickup_time` = "2021-12-02 08:50:22", `dropoff_time` = "2020-04-10 19:42:21", `driver_id` = 7, `vehicle_id` = 16 WHERE `delivery_id` = 100;
+-- Dump completed on 2020-12-15 18:09:32
