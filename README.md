@@ -168,7 +168,23 @@ The select type below is simple, the result is derived from the restauarant_rati
 ![](images/query_optimization3.png)
 
 ## Stored Procedure
+Below is the image of our stored procedures. The calculate_average_driver_rating stored procedure is used to calculate the average rating for any particular driver. The only parameter you need to pass in is the id of the driver. The calculate_average_restaurant_rating is used to calculate the average rating for any particular restaurant. The only parameter you need to pass in is the id of the restaurant. 
+
+![](images/Stored_Procedure.png)
+
+In this example below, calling the calculate_average_driver_rating with driver #7 passed in for the parameter gives the average rating for that driver which is 3.2222 out of 5.
+
+![](images/driver_rating.png)
+
+In this example below, calling the calculate_average_restaurant_rating with restaurant #53 passed in for the parameter gives the average rating for that restaurant which is 2.3333 out of 5.
+
+![](images/driver_rating.png)
+
 ## Web/App Implementation (Optional) or Description of Future Work
+Although we did not get the chance to develop a web application for our database, in the future we would definitely want to complete that. We plan to develope and create a web application that allows a user to view the ratings for each resteaurant in our database, as well as each driver. The user would also have the ability to leave ratings for restaurants and drivers. Developing a web application for our database would allow any user to easily check and leave ratings for any restaurant or driver.
+
 ## MySQL Dump
-[Here is the link to our SQL Dump](Dump20201205.sql)
+[Here is the link to our SQL Dump](Campus_Eats_SQLDump.sql)
+
+
 ## PPT Video (link)
