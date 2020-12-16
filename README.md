@@ -188,3 +188,4 @@ Although we did not get the chance to develop a web application for our database
 
 
 ## PPT Video (link)
+[Here is the link to our Narrated PowerPoint video](https://drive.google.com/file/d/1TpPInj7ebY4Mq2wQHWphJHPyPYHHz752/view?usp=sharing)
